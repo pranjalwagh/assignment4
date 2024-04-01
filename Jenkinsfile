@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'start mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                sh 'start mvn clean test'
+                sh 'mvn clean test'
             }
         }
     }
