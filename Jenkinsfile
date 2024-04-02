@@ -1,10 +1,9 @@
 pipeline {
     agent any
-
-    tools
-    {
-        maven "My maven"
-    }
+    
+     environment {
+     PATH = "${env.PATH};C:\\Windows\\System32;C:\\Program Files\\apache-maven-3.9.6\\bin"
+ }
     
     stages {
         stage('Checkout') {
@@ -19,7 +18,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
     }
