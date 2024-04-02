@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    tools
+    {
+        maven "MAVEN_HOME"
+    }
     
     stages {
         stage('Checkout') {
@@ -9,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
         stage('Test') {
